@@ -30,6 +30,15 @@ pipeline{
                     sh "mvn package"
                 }
             }
+           stage("Deploy")
+            {
+                steps{
+                    sshagent(['kunal8077']) {
+                    sh "scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/jenkinsassignment1_prod/target/*.jar ubuntu@3.87.221.20:/home/ubuntu/"
+                               
+                 }
+                }
+            }
        }
 }
         
