@@ -30,7 +30,7 @@ pipeline{
                     sh "mvn package"
                 }
             }
-           stage("Deploy")
+           stage("Deploys")
             {
                 steps{
                     sshagent(['kunal8077']) {
